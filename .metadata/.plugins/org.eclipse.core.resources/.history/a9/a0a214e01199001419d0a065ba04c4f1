@@ -1,0 +1,473 @@
+package com.sample;
+
+public class Wycieczka {
+	private boolean polska;
+	private boolean zagranica;
+	private boolean weekend;
+	private boolean tydzien;
+	private boolean ponizej25;
+	private boolean powyzej25;
+	private boolean zwiedzanie;
+	private boolean sport;
+	private boolean odpoczynek;
+	private boolean przewodnik;
+	private boolean bezPrzewodnika;
+	private boolean pn;
+	private boolean pl;
+	private boolean wsch;
+	private boolean zach;
+	private boolean lato;
+	private boolean zima;
+	private boolean morze;
+	private boolean jezioro;
+	private boolean gory;
+	private boolean zimne;
+	private boolean cieple;
+	private boolean karkonosze;
+	private boolean tatry;
+	private boolean wspinaczka;
+	private boolean tenis;
+	private boolean narty;
+	private boolean jazdakonna;
+	private boolean obPrzyr;
+	private boolean archSakr;
+	private boolean archStaroz;
+	private boolean plazaPiaszczysta;
+	private boolean plazaKamienista;
+	private boolean hotelSpa;
+	private boolean domJednorodz;
+	private boolean morzSrodziemn;
+	private boolean morzAdriat;
+	private boolean pireneje;
+	private boolean gskandynawskie;
+	private boolean apeniny;
+	private boolean miasto;
+	private boolean wies;
+	private boolean afryka;
+	private boolean ameryka;
+	private boolean australia;
+	private boolean krBogaty;
+	private boolean krBiedny;
+	private boolean brazylia;
+	private boolean argentyna;
+	private boolean stanyZjedn;
+	private boolean nowyYork;
+	private boolean losAngeles;
+	private boolean waszyngton;
+	private boolean szlTrudne;
+	private boolean szlLatwe;
+	private boolean europa;
+	private boolean tunezja;
+	private boolean egipt;
+	private boolean portugalia;
+	private boolean hiszpania;
+	private boolean szwecja;
+	private boolean norwegia;
+	private boolean irlandia;
+	private boolean grecja;
+	private boolean chorwacja;
+	private boolean kaukaz;
+	private boolean alpy;
+	public boolean isZagranica() {
+		return zagranica;
+	}
+	public void setZagranica(boolean zagranica) {
+		this.zagranica = zagranica;
+	}
+	public boolean isWeekend() {
+		return weekend;
+	}
+	public void setWeekend(boolean weekend) {
+		this.weekend = weekend;
+	}
+	public boolean isTydzien() {
+		return tydzien;
+	}
+	public void setTydzien(boolean tydzien) {
+		this.tydzien = tydzien;
+	}
+	public boolean isPonizej25() {
+		return ponizej25;
+	}
+	public void setPonizej25(boolean ponizej25) {
+		this.ponizej25 = ponizej25;
+	}
+	public boolean isZwiedzanie() {
+		return zwiedzanie;
+	}
+	public void setZwiedzanie(boolean zwiedzanie) {
+		this.zwiedzanie = zwiedzanie;
+	}
+	public boolean isSport() {
+		return sport;
+	}
+	public void setSport(boolean sport) {
+		this.sport = sport;
+	}
+	public boolean isOdpoczynek() {
+		return odpoczynek;
+	}
+	public void setOdpoczynek(boolean odpoczynek) {
+		this.odpoczynek = odpoczynek;
+	}
+	public boolean isPrzewodnik() {
+		return przewodnik;
+	}
+	public void setPrzewodnik(boolean przewodnik) {
+		this.przewodnik = przewodnik;
+	}
+	public boolean isPn() {
+		return pn;
+	}
+	public void setPn(boolean pn) {
+		this.pn = pn;
+	}
+	public boolean isPl() {
+		return pl;
+	}
+	public void setPl(boolean pl) {
+		this.pl = pl;
+	}
+	public boolean isWsch() {
+		return wsch;
+	}
+	public void setWsch(boolean wsch) {
+		this.wsch = wsch;
+	}
+	public boolean isZach() {
+		return zach;
+	}
+	public void setZach(boolean zach) {
+		this.zach = zach;
+	}
+	public boolean isLato() {
+		return lato;
+	}
+	public void setLato(boolean lato) {
+		this.lato = lato;
+	}
+	public boolean isZima() {
+		return zima;
+	}
+	public void setZima(boolean zima) {
+		this.zima = zima;
+	}
+	public boolean isMorze() {
+		return morze;
+	}
+	public void setMorze(boolean morze) {
+		this.morze = morze;
+	}
+	public boolean isJezioro() {
+		return jezioro;
+	}
+	public void setJezioro(boolean jezioro) {
+		this.jezioro = jezioro;
+	}
+	public boolean isGory() {
+		return gory;
+	}
+	public void setGory(boolean gory) {
+		this.gory = gory;
+	}
+	public boolean isKarkonosze() {
+		return karkonosze;
+	}
+	public void setKarkonosze(boolean karkonosze) {
+		this.karkonosze = karkonosze;
+	}
+	public boolean isTatry() {
+		return tatry;
+	}
+	public void setTatry(boolean tatry) {
+		this.tatry = tatry;
+	}
+	public boolean isWspinaczka() {
+		return wspinaczka;
+	}
+	public void setWspinaczka(boolean wspinaczka) {
+		this.wspinaczka = wspinaczka;
+	}
+	public boolean isTenis() {
+		return tenis;
+	}
+	public void setTenis(boolean tenis) {
+		this.tenis = tenis;
+	}
+	public boolean isNarty() {
+		return narty;
+	}
+	public void setNarty(boolean narty) {
+		this.narty = narty;
+	}
+	public boolean isJazdakonna() {
+		return jazdakonna;
+	}
+	public void setJazdakonna(boolean jazdakonna) {
+		this.jazdakonna = jazdakonna;
+	}
+	public boolean isObPrzyr() {
+		return obPrzyr;
+	}
+	public void setObPrzyr(boolean obPrzyr) {
+		this.obPrzyr = obPrzyr;
+	}
+	public boolean isArchSakr() {
+		return archSakr;
+	}
+	public void setArchSakr(boolean archSakr) {
+		this.archSakr = archSakr;
+	}
+	public boolean isArchStaroz() {
+		return archStaroz;
+	}
+	public void setArchStaroz(boolean archStaroz) {
+		this.archStaroz = archStaroz;
+	}
+	public boolean isPlazaPiaszczysta() {
+		return plazaPiaszczysta;
+	}
+	public void setPlazaPiaszczysta(boolean plazaPiaszczysta) {
+		this.plazaPiaszczysta = plazaPiaszczysta;
+	}
+	public boolean isPlazaKamienista() {
+		return plazaKamienista;
+	}
+	public void setPlazaKamienista(boolean plazaKamienista) {
+		this.plazaKamienista = plazaKamienista;
+	}
+	public boolean isHotelSpa() {
+		return hotelSpa;
+	}
+	public void setHotelSpa(boolean hotelSpa) {
+		this.hotelSpa = hotelSpa;
+	}
+	public boolean isDomJednorodz() {
+		return domJednorodz;
+	}
+	public void setDomJednorodz(boolean domJednorodz) {
+		this.domJednorodz = domJednorodz;
+	}
+	public boolean isMorzSrodziemn() {
+		return morzSrodziemn;
+	}
+	public void setMorzSrodziemn(boolean morzSrodziemn) {
+		this.morzSrodziemn = morzSrodziemn;
+	}
+	public boolean isMorzAdriat() {
+		return morzAdriat;
+	}
+	public void setMorzAdriat(boolean morzAdriat) {
+		this.morzAdriat = morzAdriat;
+	}
+	public boolean isPireneje() {
+		return pireneje;
+	}
+	public void setPireneje(boolean pireneje) {
+		this.pireneje = pireneje;
+	}
+	public boolean isGskandynawskie() {
+		return gskandynawskie;
+	}
+	public void setGskandynawskie(boolean gskandynawskie) {
+		this.gskandynawskie = gskandynawskie;
+	}
+	public boolean isApeniny() {
+		return apeniny;
+	}
+	public void setApeniny(boolean apeniny) {
+		this.apeniny = apeniny;
+	}
+	public boolean isMiasto() {
+		return miasto;
+	}
+	public void setMiasto(boolean miasto) {
+		this.miasto = miasto;
+	}
+	public boolean isWies() {
+		return wies;
+	}
+	public void setWies(boolean wies) {
+		this.wies = wies;
+	}
+	public boolean isAfryka() {
+		return afryka;
+	}
+	public void setAfryka(boolean afryka) {
+		this.afryka = afryka;
+	}
+	public boolean isAmeryka() {
+		return ameryka;
+	}
+	public void setAmeryka(boolean ameryka) {
+		this.ameryka = ameryka;
+	}
+	public boolean isAustralia() {
+		return australia;
+	}
+	public void setAustralia(boolean australia) {
+		this.australia = australia;
+	}
+	public boolean isKrBogaty() {
+		return krBogaty;
+	}
+	public void setKrBogaty(boolean krBogaty) {
+		this.krBogaty = krBogaty;
+	}
+	public boolean isKrBiedny() {
+		return krBiedny;
+	}
+	public void setKrBiedny(boolean krBiedny) {
+		this.krBiedny = krBiedny;
+	}
+	public boolean isBrazylia() {
+		return brazylia;
+	}
+	public void setBrazylia(boolean brazylia) {
+		this.brazylia = brazylia;
+	}
+	public boolean isArgentyna() {
+		return argentyna;
+	}
+	public void setArgentyna(boolean argentyna) {
+		this.argentyna = argentyna;
+	}
+	public boolean isStanyZjedn() {
+		return stanyZjedn;
+	}
+	public void setStanyZjedn(boolean stanyZjedn) {
+		this.stanyZjedn = stanyZjedn;
+	}
+	public boolean isNowyYork() {
+		return nowyYork;
+	}
+	public void setNowyYork(boolean nowyYork) {
+		this.nowyYork = nowyYork;
+	}
+	public boolean isLosAngeles() {
+		return losAngeles;
+	}
+	public void setLosAngeles(boolean losAngeles) {
+		this.losAngeles = losAngeles;
+	}
+	public boolean isWaszyngton() {
+		return waszyngton;
+	}
+	public void setWaszyngton(boolean waszyngton) {
+		this.waszyngton = waszyngton;
+	}
+	public boolean isSzlTrudne() {
+		return szlTrudne;
+	}
+	public void setSzlTrudne(boolean szlTrudne) {
+		this.szlTrudne = szlTrudne;
+	}
+	public boolean isSzlLatwe() {
+		return szlLatwe;
+	}
+	public void setSzlLatwe(boolean szlLatwe) {
+		this.szlLatwe = szlLatwe;
+	}
+	public boolean isEuropa() {
+		return europa;
+	}
+	public void setEuropa(boolean europa) {
+		this.europa = europa;
+	}
+	public boolean isTunezja() {
+		return tunezja;
+	}
+	public void setTunezja(boolean tunezja) {
+		this.tunezja = tunezja;
+	}
+	public boolean isEgipt() {
+		return egipt;
+	}
+	public void setEgipt(boolean egipt) {
+		this.egipt = egipt;
+	}
+	public boolean isPortugalia() {
+		return portugalia;
+	}
+	public void setPortugalia(boolean portugalia) {
+		this.portugalia = portugalia;
+	}
+	public boolean isHiszpania() {
+		return hiszpania;
+	}
+	public void setHiszpania(boolean hiszpania) {
+		this.hiszpania = hiszpania;
+	}
+	public boolean isSzwecja() {
+		return szwecja;
+	}
+	public void setSzwecja(boolean szwecja) {
+		this.szwecja = szwecja;
+	}
+	public boolean isIrlandia() {
+		return irlandia;
+	}
+	public void setIrlandia(boolean irlandia) {
+		this.irlandia = irlandia;
+	}
+	public boolean isGrecja() {
+		return grecja;
+	}
+	public void setGrecja(boolean grecja) {
+		this.grecja = grecja;
+	}
+	public boolean isChorwacja() {
+		return chorwacja;
+	}
+	public void setChorwacja(boolean chorwacja) {
+		this.chorwacja = chorwacja;
+	}
+	public boolean isKaukaz() {
+		return kaukaz;
+	}
+	public void setKaukaz(boolean kaukaz) {
+		this.kaukaz = kaukaz;
+	}
+	public boolean isAlpy() {
+		return alpy;
+	}
+	public void setAlpy(boolean alpy) {
+		this.alpy = alpy;
+	}
+	public boolean isPolska() {
+		return polska;
+	}
+	public void setPolska(boolean polska) {
+		this.polska = polska;
+	}
+	public boolean isBezPrzewodnika() {
+		return bezPrzewodnika;
+	}
+	public void setBezPrzewodnika(boolean bezPrzewodnika) {
+		this.bezPrzewodnika = bezPrzewodnika;
+	}
+	public boolean isPowyzej25() {
+		return powyzej25;
+	}
+	public void setPowyzej25(boolean powyzej25) {
+		this.powyzej25 = powyzej25;
+	}
+	public boolean isNorwegia() {
+		return norwegia;
+	}
+	public void setNorwegia(boolean norwegia) {
+		this.norwegia = norwegia;
+	}
+	public boolean isZimne() {
+		return zimne;
+	}
+	public void setZimne(boolean zimne) {
+		this.zimne = zimne;
+	}
+	public boolean isCieple() {
+		return cieple;
+	}
+	public void setCieple(boolean cieple) {
+		this.cieple = cieple;
+	}
+}

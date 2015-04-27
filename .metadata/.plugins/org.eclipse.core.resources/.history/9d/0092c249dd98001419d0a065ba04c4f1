@@ -1,0 +1,45 @@
+package com.sample;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Pytanie {
+	
+	public int idPytania;
+	public String tresc;
+	public ArrayList<String> odpowiedzi;
+	public ArrayList<Integer>nastPyt;
+	public Pytanie(int idPyt, String tresc, String[] odp, Integer[] nasPyt){
+	this.idPytania=idPyt;
+	this.tresc=tresc;
+	this.odpowiedzi=new ArrayList<String>();
+	this.nastPyt=new ArrayList<Integer>();
+	this.odpowiedzi.addAll(Arrays.asList(odp));
+	this.nastPyt.addAll(Arrays.asList(nasPyt));
+	
+}
+public String getTresc() {
+	return tresc;
+}
+public void setTresc(String tresc) {
+	this.tresc = tresc;
+}
+public ArrayList<String> getOdpowiedzi() {
+	return odpowiedzi;
+}
+public void setOdpowiedzi(ArrayList<String> odpowiedzi) {
+	this.odpowiedzi = odpowiedzi;
+}
+public ArrayList<Integer> getNastPyt() {
+	return nastPyt;
+}
+public void setNastPyt(ArrayList<Integer> nastPyt) {
+	this.nastPyt = nastPyt;
+}
+public int getIdPytania() {
+	return idPytania;
+}
+public void setIdPytania(int idPytania) {
+	this.idPytania = idPytania;
+}
+}

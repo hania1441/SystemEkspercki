@@ -1,0 +1,17 @@
+<object-stream>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>1</factId>
+  <objectToString>com.sample.Wycieczka@68092b46</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>3</type>
+  <factId>1</factId>
+  <objectToString>com.sample.Wycieczka@68092b46</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>2</factId>
+  <objectToString>com.sample.Wycieczka@68092b46</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+</object-stream>

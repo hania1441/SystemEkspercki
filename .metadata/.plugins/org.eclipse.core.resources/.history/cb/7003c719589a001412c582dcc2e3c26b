@@ -1,0 +1,445 @@
+package com.sample
+ 
+//import com.sample.DroolsTest.Message;
+
+import com.sample.Question;
+
+global java.util.ArrayList questions;
+global java.util.ArrayList allQuestions;
+
+global java.util.ArrayList offers;
+global java.util.ArrayList allOffers;
+
+
+rule "Initial rule"
+	when 
+	then
+		System.out.println("test");
+		questions.add(allQuestions.get(1));
+		questions.add(allQuestions.get(0));
+		questions.add(allQuestions.get(3));
+		questions.add(allQuestions.get(14));
+end
+ 
+ rule "za-granica"
+ 	when
+ 		Answer( text == "Za granice" )
+ 	then
+		questions.add(allQuestions.get(2));
+ end
+ 
+ rule "cena-ponizej"
+ 	when
+ 		Answer (text == "poni¿ej 2500" )
+ 	then
+ 		questions.add(allQuestions.get(19));
+ end
+ 
+ rule "cena-powyzej"
+ 	when 
+ 		Answer (text == "powyzej 2500" )
+ 	then
+ 		questions.add(allQuestions.get(8));
+ end
+ 	
+ rule "panstwo-ameryka"
+ 	when
+ 		Answer (text == "Ameryka")
+ 	then
+ 		questions.add(allQuestions.get(12));
+end
+
+rule "miast-stany"
+	when
+		Answer (text == "Stany Zjednoczone")
+	then
+		questions.add(allQuestions.get(17));	
+end
+
+rule "zwiedzanie-przewonik-za-granica"
+	when
+		(and Answer (text == "Za granice")
+			Answer (text == "Zwiedzac")
+		)
+	then
+		questions.add(allQuestions.get(4));
+end
+
+rule "panstwo-afryka"
+	when
+		Answer (text == "Afryka")
+	then
+		questions.add(allQuestions.get(18));
+end	
+
+ rule "zwiedzanie"
+ 	when
+ 		Answer( text == "Zwiedzac" )
+ 	then
+		questions.add(allQuestions.get(7));
+ end
+ 
+ rule "jakie-gory-polska"
+ 	when
+ 		(and Answer (text == "Polska")
+ 			Answer (text == "Parki karjobrazowe")
+ 		)
+ 	then
+ 		questions.add(allQuestions.get(11));
+ end	
+ 		
+ rule "odpoczynek-polska"
+ 	when 
+ 		(and Answer( text == "Polska") Answer( text == "Odpoczywac"))
+ 	then
+ 		questions.add(allQuestions.get(5));
+ end
+
+rule "jaki-sport"
+	when
+		Answer (text == "Uprawiac sport")
+	then
+		questions.add(allQuestions.get(9));
+end
+
+rule "jaka-plaza"
+	when
+		Answer (text == "Plywanie")
+	then
+		questions.add(allQuestions.get(10));	
+end
+
+rule "szlaki-wspinaczka"
+	when
+		Answer (text == "Wspinaczka")
+	then
+		questions.add(allQuestions.get(16));	
+end	
+
+
+rule "polska1"
+	when (and Answer (text == "Polska")
+			Answer (text == "Muzea")
+		)
+	then
+		System.out.println("dodanie oferty");
+		offers.add(allOffers.get(0));
+end
+/*rule "Hello World"
+    when
+        m : Message( status == Message.HELLO, myMessage : message )
+    then
+        System.out.println( myMessage );
+        m.setMessage( "Goodbye cruel world" );
+        m.setStatus( Message.GOODBYE );
+        update( m );
+end
+
+rule "GoodBye"
+    when
+        Message( status == Message.GOODBYE, myMessage : message )
+    then
+        System.out.println( myMessage );
+end*/
+
+/*rule "1"
+    when
+        Wycieczka( polska, weekend, zwiedzanie, przewodnik )
+    then
+        System.out.println( "1" );
+end
+rule "2"
+    when
+        Wycieczka( polska, weekend, zwiedzanie, bezPrzewodnika )
+    then
+        System.out.println( "2" );
+end
+rule "3"
+    when
+        Wycieczka( polska, weekend, odpoczynek, pn )
+    then
+        System.out.println( "3" );
+end
+rule "4"
+    when
+        Wycieczka( polska, weekend, odpoczynek, pl )
+    then
+        System.out.println( "4" );
+end
+rule "5"
+    when
+        Wycieczka( polska, tydzien, zwiedzanie, pn )
+    then
+        System.out.println( "5" );
+end
+rule "6"
+    when
+        Wycieczka( polska, tydzien, zwiedzanie, pl )
+    then
+        System.out.println( "6" );
+end
+rule "7"
+    when
+        Wycieczka( polska, tydzien, zwiedzanie, wsch )
+    then
+        System.out.println( "7" );
+end
+rule "8"
+    when
+        Wycieczka( polska, tydzien, zwiedzanie, zach )
+    then
+        System.out.println( "8" );
+end
+rule "9"
+    when
+        Wycieczka( polska, tydzien, sport, lato, wspinaczka )
+    then
+        System.out.println( "9" );
+end
+rule "10"
+    when
+        Wycieczka( polska, tydzien, sport, lato, tenis )
+    then
+        System.out.println( "10" );
+end
+rule "11"
+    when
+        Wycieczka( polska, tydzien, sport, zima, narty )
+    then
+        System.out.println( "11" );
+end
+rule "12"
+    when
+        Wycieczka( polska, tydzien, sport, zima, jazdakonna )
+    then
+        System.out.println( "12" );
+end
+rule "13"
+    when
+        Wycieczka( polska, tydzien, odpoczynek, lato, morze )
+    then
+        System.out.println( "13" );
+end
+rule "14"
+    when
+        Wycieczka( polska, tydzien, odpoczynek, lato, jezioro )
+    then
+        System.out.println( "14" );
+end
+rule "15"
+    when
+        Wycieczka( polska, tydzien, odpoczynek, lato, gory, karkonosze )
+    then
+        System.out.println( "15" );
+end
+rule "16"
+    when
+        Wycieczka( polska, tydzien, odpoczynek, lato, gory, tatry )
+    then
+        System.out.println( "16" );
+end
+rule "17"
+    when
+        Wycieczka( polska, tydzien, odpoczynek, zima)
+    then
+        System.out.println( "17" );
+end
+rule "18"
+    when
+        Wycieczka( zagranica, ponizej25, zwiedzanie, obPrzyr )
+    then
+        System.out.println( "18" );
+end
+rule "19"
+    when
+        Wycieczka( zagranica, ponizej25, zwiedzanie, archSakr )
+    then
+        System.out.println( "19" );
+end
+rule "20"
+    when
+        Wycieczka( zagranica, ponizej25, zwiedzanie, archStaroz )
+    then
+        System.out.println( "20" );
+end
+rule "21"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, morze, plazaPiaszczysta, hotelSpa )
+    then
+        System.out.println( "21" );
+end
+rule "22"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, morze, plazaPiaszczysta, domJednorodz )
+    then
+        System.out.println( "22" );
+end
+rule "23"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, morze, plazaKamienista, morzSrodziemn )
+    then
+        System.out.println( "23" );
+end
+rule "24"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, morze, plazaKamienista, morzAdriat )
+    then
+        System.out.println( "24" );
+end
+rule "25"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, gory, pireneje, miasto )
+    then
+        System.out.println( "25" );
+end
+rule "26"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, gory, pireneje, wies )
+    then
+        System.out.println( "26" );
+end
+rule "27"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, gory, gskandynawskie )
+    then
+        System.out.println( "27" );
+end
+rule "28"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, gory, apeniny, szlTrudne )
+    then
+        System.out.println( "28" );
+end
+rule "29"
+    when
+        Wycieczka( zagranica, ponizej25, odpoczynek, gory, apeniny, szlLatwe )
+    then
+        System.out.println( "29" );
+end
+
+rule "30"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, afryka, krBogaty, miasto )
+    then
+        System.out.println( "30" );
+end
+rule "31"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, afryka, krBogaty, wies )
+    then
+        System.out.println( "31" );
+end
+rule "32"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, afryka, krBiedny)
+    then
+        System.out.println( "32" );
+end
+rule "33"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, ameryka, brazylia)
+    then
+        System.out.println( "33" );
+end
+rule "34"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, ameryka, argentyna)
+    then
+        System.out.println( "34" );
+end
+rule "35"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, ameryka, stanyZjedn, nowyYork)
+    then
+        System.out.println( "35" );
+end
+rule "36"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, ameryka, stanyZjedn, losAngeles)
+    then
+        System.out.println( "36" );
+end
+rule "37"
+    when
+        Wycieczka( zagranica, powyzej25, zwiedzanie, ameryka, stanyZjedn, waszyngton)
+    then
+        System.out.println( "37" );
+end
+rule "38"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, afryka, tunezja)
+    then
+        System.out.println( "38" );
+end
+rule "39"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, afryka, egipt)
+    then
+        System.out.println( "39" );
+end
+rule "40"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, europa, cieple, portugalia)
+    then
+        System.out.println( "40" );
+end
+rule "41"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, europa, cieple, hiszpania)
+    then
+        System.out.println( "41" );
+end
+rule "42"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, europa, zimne, szwecja)
+    then
+        System.out.println( "42" );
+end
+rule "43"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, europa, zimne, norwegia)
+    then
+        System.out.println( "43" );
+end
+rule "44"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaPiaszczysta, europa, zimne, irlandia)
+    then
+        System.out.println( "44" );
+end
+rule "45"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaKamienista, grecja)
+    then
+        System.out.println( "45" );
+end
+rule "46"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, morze, plazaKamienista, chorwacja)
+    then
+        System.out.println( "46" );
+end
+rule "47"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, gory, kaukaz)
+    then
+        System.out.println( "47" );
+end
+rule "48"
+    when
+        Wycieczka( zagranica, powyzej25, odpoczynek, gory, alpy)
+    then
+        System.out.println( "48" );
+end
+rule "49"
+    when
+        Wycieczka( zagranica, powyzej25, sport, narty)
+    then
+        System.out.println( "49" );
+end
+rule "50"
+    when
+        Wycieczka( zagranica, powyzej25, sport, tenis)
+    then
+        System.out.println( "50" );
+end*/

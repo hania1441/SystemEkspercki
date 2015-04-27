@@ -1,0 +1,9 @@
+package com.sample;
+
+public class ExpertSystem {
+	private String text = "test";
+	
+	public void test() {
+		System.out.println(text);
+	}
+}

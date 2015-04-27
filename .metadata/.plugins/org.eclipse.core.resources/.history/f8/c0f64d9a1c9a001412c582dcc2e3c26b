@@ -1,0 +1,7 @@
+package com.sample;
+
+import java.util.ArrayList;
+
+public class SystemData {
+	
+}

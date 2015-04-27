@@ -1,0 +1,116 @@
+package com.sample;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextPane;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+
+import java.util.ArrayList;
+
+public class GUI {
+	private final JFrame okno = new JFrame();
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final JTextPane text = new JTextPane();
+	private final JButton button = new JButton();	
+	private ArrayList<Integer> pytania;
+	private Integer nrPyt = 0;
+	private Start dane = new Start();
+	private ButtonGroup group = new ButtonGroup();
+	
+	private ArrayList<JRadioButton> odpButton = new ArrayList<JRadioButton>();
+	
+	
+	void UtworzOknow() {
+		okno.setResizable(false);
+		okno.getContentPane().setBackground(new Color(0, 191, 255));
+		okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		okno.setSize(700,500);
+		okno.setTitle("System ekspercki");
+				
+		for (int i = 0; i < 4; i++) {
+			odpButton.add(new JRadioButton());
+			odpButton.get(i).setBounds(90, 125+i*30, 500, 30);
+			okno.getContentPane().add(odpButton.get(i));
+			group.add(odpButton.get(i));
+			odpButton.get(i).setVisible(false);;
+			odpButton.get(i).setBackground(new Color(0, 191, 255));
+		}
+
+		
+		button.setBounds(227, 358, 251, 44);
+		okno.getContentPane().setLayout(null);
+		okno.getContentPane().add(button);
+				
+		text.setBackground(new Color(255, 250, 205));
+		text.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		text.setEditable(false);
+		
+		text.setBounds(87, 96, 516, 125);
+		okno.getContentPane().add(text);
+		okno.setVisible(true);
+		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (nrPyt == 0) {
+					button.setText("Nastepne");
+					wyswietlPierwszePytanie();
+				}
+				else if (zaznaczona() > 0) {
+					wyswietlNastepnePytanie();
+				}
+			}
+		});
+	}
+	
+	void Powitanie() {
+		text.setText("Witamy w systemie eksperckim !!\r\nCelem tego programu jest dialog z u\u017Cytkownikiem na temat jego wymarzonych wakacji.\r\nPo zadaniu odpowiednich pyta\u0144 system wskazuje dobran\u0105 dla u\u017Cytkownika ofert\u0119 wakacji.");
+		button.setText("Rozpocznij");
+	}
+	
+	void wyswietlPierwszePytanie() {
+		nrPyt = dane.listaPytan.get(nrPyt).getNastPyt().get(zaznaczona());
+		text.setSize(516, 27);
+		text.setText(dane.listaPytan.get(nrPyt-1).getTresc());
+		for (int i =0; i < 4; i++) {
+			if (i < dane.listaPytan.get(nrPyt-1).getOdpowiedzi().size()) {
+				odpButton.get(i).setText(dane.listaPytan.get(nrPyt-1).getOdpowiedzi().get(i));
+				odpButton.get(i).setVisible(true);
+			}
+			else {
+				odpButton.get(i).setVisible(false);
+			}	
+		}
+		System.out.print(nrPyt);
+		
+	}
+	
+	void wyswietlNastepnePytanie() {
+		nrPyt = dane.listaPytan.get(nrPyt).getIdPytania();
+		text.setSize(516, 27);
+		text.setText(dane.listaPytan.get(nrPyt-1).getTresc());
+		for (int i =0; i < 4; i++) {
+			if (i < dane.listaPytan.get(nrPyt-1).getOdpowiedzi().size()) {
+				odpButton.get(i).setText(dane.listaPytan.get(nrPyt-1).getOdpowiedzi().get(i));
+				odpButton.get(i).setVisible(true);
+			}
+			else {
+				odpButton.get(i).setVisible(false);
+			}	
+		}
+		System.out.print(nrPyt);
+	}
+	
+	int zaznaczona() {
+		for (int i =0; i < 4; i++) {
+			if (odpButton.get(i).isSelected())
+				return i+1;
+		}
+		return -1;
+	}
+}

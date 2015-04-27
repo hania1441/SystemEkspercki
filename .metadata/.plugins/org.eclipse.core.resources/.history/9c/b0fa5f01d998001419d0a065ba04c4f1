@@ -1,0 +1,107 @@
+package com.sample;
+
+import java.util.ArrayList;
+
+public class Start {
+	public ArrayList<Oferta> listaOfert;
+	public ArrayList<Pytanie> listaPytan;
+	Start(){
+		listaOfert=new ArrayList<Oferta>();
+		listaOfert.add(new Oferta("Polska", "Warszawa", "Atos", 400));                   //1
+		listaOfert.add(new Oferta("Polska", "Kraków", "Doris", 350));                    //2
+		listaOfert.add(new Oferta("Polska", "Ko³obrzeg", "Diva", 400));                  //3
+		listaOfert.add(new Oferta("Polska", "Zakopane", "Domek Maria", 600));            //4
+		listaOfert.add(new Oferta("Polska", "Gdañsk", "Bazyl", 900));                    //5
+		listaOfert.add(new Oferta("Polska", "Wroc³aw", "Aradnis", 800));                 //6
+		listaOfert.add(new Oferta("Polska", "Bia³ystok", "Ibis", 750));                  //7
+		listaOfert.add(new Oferta("Polska", "Poznañ", "Przy Rynku", 850));               //8
+		listaOfert.add(new Oferta("Polska", "Szczecin", "Focus", 1100));                 //9
+		listaOfert.add(new Oferta("Polska", "£ódŸ", "Delicjusz", 900));                  //10
+		listaOfert.add(new Oferta("Polska", "Zakopane", "Willa Orla", 1500));            //11
+		listaOfert.add(new Oferta("Polska", "Puszczykowo", "Green", 1000));              //12
+		listaOfert.add(new Oferta("Polska", "Mielno", "Pensjonat Arkadia", 1100));       //13
+		listaOfert.add(new Oferta("Polska", "Drawsko", "Agroturystyka u Marioli", 1050));      //14
+		listaOfert.add(new Oferta("Polska", "Karpacz", "Noclegi Anna", 1200));            //15
+		listaOfert.add(new Oferta("Polska", "Bia³ka Tatrzañska", "S³oneczny Dworek", 1400));   //16
+		listaOfert.add(new Oferta("Polska", "Krynica Zdrój", "Hotel Baginscy SPA", 1600));       //17
+		
+		listaOfert.add(new Oferta("Madagaskar", "Antenanariva", "Tamasina", 2100));              //1
+		listaOfert.add(new Oferta("W³ochy", "Rzym", "Salaria", 1500));                            //2
+		listaOfert.add(new Oferta("Egipt", "Kair", "Ramses Hillon", 2300));                      //3
+		listaOfert.add(new Oferta("Turcja", "Anamur", "Anemonia SPA", 2400));					//4
+		listaOfert.add(new Oferta("Turcja", "Anamur", "Dom jednorodzinny, pokój", 2000));		//5
+		listaOfert.add(new Oferta("Majorka", "Palma de Mallorca", "Saratoga", 2200));			//6
+		listaOfert.add(new Oferta("Chorwacja", "Dubrovnik", "Berkeley Hotel", 1700));			//7
+		listaOfert.add(new Oferta("Francja", "Prades", "Hexagone", 2150));						//8
+		listaOfert.add(new Oferta("Francja", "Lourdes", "Les glicines", 1800));					//9
+		listaOfert.add(new Oferta("Norwegia", "Lom", "Schronisko górskie Scandinavia", 2300));  //10
+		listaOfert.add(new Oferta("W³ochy", "Pallermo", "Posta", 2400));						//11
+		listaOfert.add(new Oferta("W³ochy", "Apulia", "Tonic", 2100));							//12
+		listaOfert.add(new Oferta("RPA", "Pretoria", "Pezula Resort", 3100));					//13
+		listaOfert.add(new Oferta("RPA", "Mel Moth", "Cabanas", 2800));							//14
+		listaOfert.add(new Oferta("Maroko", "Rabat", "Royal Atlas", 3300));						//15
+		listaOfert.add(new Oferta("Brazylia", "Rio de Janeiro", "Atlantico Sul", 4000));		//16
+		listaOfert.add(new Oferta("Argentyna", "Buenos Aires", "Mine Hotel", 4500));			//17
+		listaOfert.add(new Oferta("Stany Zjednoczone", "Nowy York", "Pennsylvania", 4400));		//18
+		listaOfert.add(new Oferta("Stany Zjednoczone", "Los Angeles", "Sofitel", 4300));		//19
+		listaOfert.add(new Oferta("Stany Zjednoczone", "Waszyngton", "Row NYC", 4700));			//20
+		listaOfert.add(new Oferta("Tunezja", "Sousse", "Marabout", 4300));                      //21
+		listaOfert.add(new Oferta("Egipt", "Sharm El Sheikh", "Grand Plaza", 4000));			//22
+		listaOfert.add(new Oferta("Portugalia", "Altura", "Eurotel Altura", 3500));				//23
+		listaOfert.add(new Oferta("Hiszpania", "Lanzarotte", "Blue Sea Lagos De Cesar", 3700));			//24
+		listaOfert.add(new Oferta("Szwecja", "Malmo", "Scandic Hotel", 3000));					//25
+		listaOfert.add(new Oferta("Norwegia", "Kristiansand", "Rica Norge", 2900));				//26
+		listaOfert.add(new Oferta("Irlandia", "Ardmore", "Ardmore Hotel", 3300));				//27
+		listaOfert.add(new Oferta("Grecja", "Chalkidiki", "Nostos", 3700));						//28
+		listaOfert.add(new Oferta("Chorwacja", "Korcula", "Grand Hotel Neum - Wellness & Spa ", 4200));			//29
+		listaOfert.add(new Oferta("Gruzja", " Bakuriani Tbilisi", "Bakuriani Zimowa Stolica Gruzji", 2800));			//30
+		listaOfert.add(new Oferta("Szwajcaria","Saas-Fee", "Apartamenty Acimo", 4500));			//31
+		listaOfert.add(new Oferta("Austria","Kaprun", "Antonius", 4300));						//32
+		listaOfert.add(new Oferta("Niemcy","Hamburg", "Wedina", 3500));							//33
+		
+		listaPytan=new ArrayList<Pytanie>();
+		listaPytan.add(new Pytanie(1,"Gdzie chcia³byœ pojechaæ?", new String[]{"Polska","Za granicê"}, new Integer[]{2,3}));
+		listaPytan.add(new Pytanie(2,"Na jak d³ugo chcia³byœ pojechaæ?", new String[]{"Weekend","Tydzieñ"}, new Integer[]{4,5}));
+		listaPytan.add(new Pytanie(3,"W jakiej cenie chcia³byœ otrzymaæ ofertê?", new String[]{"poni¿ej 2500 z³","powy¿ej 2500 z³"}, new Integer[]{6,7}));
+		listaPytan.add(new Pytanie(4,"Jak chcia³byœ spêdziæ ten czas?", new String[]{"Chcê zwiedzaæ","Chcê odpoczywaæ"}, new Integer[]{8,9}));
+		listaPytan.add(new Pytanie(5,"Jak chcia³byœ spêdziæ ten czas?", new String[]{"Chcê zwiedzaæ","Chcê uprawiaæ sport","Chcê odpoczywaæ"}, new Integer[]{10,11,12}));
+		listaPytan.add(new Pytanie(6,"Jak chcia³byœ spêdziæ ten czas?", new String[]{"Chcê zwiedzaæ","Chcê odpoczywaæ"}, new Integer[]{13,14}));
+		listaPytan.add(new Pytanie(7,"Jak chcia³byœ spêdziæ ten czas?", new String[]{"Chcê zwiedzaæ","Chcê uprawiaæ sport","Chcê odpoczywaæ"}, new Integer[]{15,16,17}));
+		listaPytan.add(new Pytanie(8,"Chcesz zwiedzaæ z przewodnikiem czy bez?", new String[]{"Z przewodnikiem","Bez przewodnika"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(9,"W jakim kierunku Polski chcesz pojechaæ?", new String[]{"Pó³nocnym","Po³udniowym"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(10,"W jakim kierunku Polski chcesz pojechaæ?", new String[]{"Pó³nocnym","Po³udniowym", "Wschodnim", "Zachodnim"}, new Integer[]{-1,-1,-1,-1}));
+		listaPytan.add(new Pytanie(11,"Kiedy chcia³byœ pojechaæ?", new String[]{"Latem","Zim¹"}, new Integer[]{18,19}));
+		listaPytan.add(new Pytanie(12,"Kiedy chcia³byœ pojechaæ?", new String[]{"Latem","Zim¹"}, new Integer[]{20,-1}));
+		listaPytan.add(new Pytanie(13,"Co dok³adnie chcia³byœ zobaczyæ?", new String[]{"Obiekty Przyrodnicze","Architekturê Sakraln¹","Architekturê staro¿ytn¹"}, new Integer[]{-1,-1,-1}));
+		listaPytan.add(new Pytanie(14,"Gdzie chcia³byœ odpocz¹æ?", new String[]{"Nad morzem","W górach"}, new Integer[]{21,22}));
+		listaPytan.add(new Pytanie(15,"Wybierz kontynent, gdzie chcia³byœ pojechaæ?", new String[]{"Afryka","Ameryka"}, new Integer[]{23,24}));
+		listaPytan.add(new Pytanie(16,"Gdzie chcia³byœ odpocz¹æ?", new String[]{"Nad morzem","W górach"}, new Integer[]{25,26}));
+		listaPytan.add(new Pytanie(17,"Jaki sport chcia³byœ uprawiaæ?", new String[]{"Jazda na nartach","Tenis ziemny"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(18,"Jaki sport chcia³byœ uprawiaæ?", new String[]{"Wspinaczka œciankowa","Tenis ziemny"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(19,"Jaki sport chcia³byœ uprawiaæ?", new String[]{"Jazda na nartach","Jazda konna"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(20,"Gdzie chcia³byœ odpocz¹æ?", new String[]{"Nad morzem","Nad jeziorem","W górach"}, new Integer[]{-1,-1,27}));
+		listaPytan.add(new Pytanie(21,"Jak¹ pla¿ê wolisz?", new String[]{"Piaszczyst¹","Kamienist¹"}, new Integer[]{28,29}));
+		listaPytan.add(new Pytanie(22,"W jakie góry chcesz pojechaæ?", new String[]{"Pireneje","Góry Skandynawskie","Apeniny"}, new Integer[]{30,-1,31}));
+		listaPytan.add(new Pytanie(23,"Do jakiego kraju w Afryce chcesz pojechaæ?", new String[]{"Kraj bogaty","Kraj biedny"}, new Integer[]{32,-1}));
+		listaPytan.add(new Pytanie(24,"Do jakiego Pañstwa w Ameryce chcesz pojechaæ?", new String[]{"Brazylia","Argentyna", "Stany Zjednoczone"}, new Integer[]{-1,-1,33}));
+		listaPytan.add(new Pytanie(25,"Jak¹ pla¿ê wolisz?", new String[]{"Piaszczyst¹","Kamienist¹"}, new Integer[]{34,37}));
+		listaPytan.add(new Pytanie(26,"W jakie góry chcesz pojechaæ?", new String[]{"Kaukaz","Alpy"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(27,"W jakie góry chcesz pojechaæ?", new String[]{"Karkonosze","Tatry"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(28,"Gdzie chcesz mieszkaæ w trakcie pobytu?", new String[]{"W hotelu SPA","W domu jednorodzinnym"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(29,"Nad jakim morzem chcesz odpocz¹æ?", new String[]{"Nad morzem Œródziemnym","Nad morzem Adriatyckim"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(30,"Gdzie chcesz mieszkaæ w trakcie pobytu?", new String[]{"W mieœcie","Na wsi"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(31,"Jakie szlaki górskie Ciê interesuj¹?", new String[]{"Trudne","£atwe"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(32,"Gdzie chcesz mieszkaæ w trakcie pobytu?", new String[]{"W mieœcie","Na wsi"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(33,"Jakie miasto w Stanach Zjednoczonych chcesz najbardziej zobaczyæ?", new String[]{"Nowy York","Los Angeles", "Waszyngton"}, new Integer[]{-1,-1,-1}));
+		listaPytan.add(new Pytanie(34,"Na jakim kontynencie chcesz odpoczywaæ?", new String[]{"W Afryce","W Europie"}, new Integer[]{35,36}));
+		listaPytan.add(new Pytanie(35,"Jakie pañstwo Afryki wolisz?", new String[]{"Tunezja","Egipt"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(36,"Nad jakie morze chcesz pojechaæ?", new String[]{"Morze ciep³e","Morze zimne"}, new Integer[]{38,39}));
+		listaPytan.add(new Pytanie(37,"Wybierz pañstwo, w których chcesz odpocz¹æ?", new String[]{"Grecja","Chorwacja"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(38,"Wybierz pañstwo, w których chcesz odpocz¹æ?", new String[]{"Portugalia","Hiszpania"}, new Integer[]{-1,-1}));
+		listaPytan.add(new Pytanie(39,"Wybierz pañstwo, w których chcesz odpocz¹æ?", new String[]{"Szwecja","Norwegia","Irlandia"}, new Integer[]{-1,-1,-1}));	
+	}
+	
+	void wyswietlPytania() {
+		listaOfert.iterator().hasNext();
+	}
+}

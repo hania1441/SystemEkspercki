@@ -1,0 +1,19 @@
+package com.sample;
+
+import com.sample.Question;
+
+public class DefinedQuestions {
+	public static final int GDZIE = 0;
+	
+	Question getQuestion(Integer text) {
+		Question question = new Question();
+		switch (text) {
+		case DefinedQuestions.GDZIE:
+			question.setFullText("Gdzie chcia³byœ pojechaæ?");
+			question.setAnswers(new String[]{"Polska","Za granicê"});
+			question.setType(Question.SINGLE);
+		break;
+		}
+		return question;
+	}
+}

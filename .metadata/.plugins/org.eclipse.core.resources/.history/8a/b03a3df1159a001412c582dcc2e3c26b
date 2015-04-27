@@ -1,0 +1,42 @@
+package com.sample;
+
+
+import java.util.ArrayList;
+
+public class Question {
+	public static final int SINGLE = 0;
+	public static final int MULTIPLE = 1;
+	public static final int ANSWERED = 1;
+	
+	private String fullText;
+	private String text;
+	private ArrayList<String> answers;
+	private Integer type;
+	private Integer status;
+	
+	public Question (String fullText, String text, ArrayList<String> answers, Integer type) {
+		this.fullText = fullText;
+		this.text = text;
+		this.answers = answers;
+		this.type = type;
+		this.status = 0;
+	}
+	
+	public String getFullText() {
+		return this.fullText;
+	}
+	
+	public String getText() {
+		return this.text;
+	}
+	
+	public ArrayList<String> getAnswers() {
+		return this.answers;
+	}
+	
+	public Integer getType() {
+		return this.type;
+	}
+	
+	public void addQuestion 
+}

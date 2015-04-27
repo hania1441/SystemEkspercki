@@ -1,0 +1,204 @@
+package com.sample
+ 
+//import com.sample.DroolsTest.Message;
+
+import com.sample.Question;
+import com.sample.Offer;
+
+global java.util.ArrayList questions;
+global java.util.ArrayList allQuestions;
+
+global java.util.ArrayList offers;
+global java.util.ArrayList allOffers;
+
+
+rule "Initial rule"
+	when 
+	then
+		System.out.println("test");
+		questions.add(allQuestions.get(1));
+		questions.add(allQuestions.get(0));
+		questions.add(allQuestions.get(3));
+		questions.add(allQuestions.get(14));
+end
+ 
+ rule "za-granica"
+ 	when
+ 		Answer( text == "Za granice" )
+ 	then
+		questions.add(allQuestions.get(2));
+ end
+ 
+ rule "cena-ponizej"
+ 	when
+ 		Answer (text == "poni¿ej 2500" )
+ 	then
+ 		questions.add(allQuestions.get(19));
+ end
+ 
+ rule "cena-powyzej"
+ 	when 
+ 		Answer (text == "powyzej 2500" )
+ 	then
+ 		questions.add(allQuestions.get(8));
+ end
+ 	
+ rule "panstwo-ameryka"
+ 	when
+ 		Answer (text == "Ameryka")
+ 	then
+ 		questions.add(allQuestions.get(12));
+end
+
+rule "miast-stany"
+	when
+		Answer (text == "Stany Zjednoczone")
+	then
+		questions.add(allQuestions.get(17));	
+end
+
+rule "zwiedzanie-przewonik-za-granica"
+	when
+		(and Answer (text == "Za granice")
+			Answer (text == "Zwiedzac")
+		)
+	then
+		questions.add(allQuestions.get(4));
+end
+
+rule "panstwo-afryka"
+	when
+		Answer (text == "Afryka")
+	then
+		questions.add(allQuestions.get(18));
+end	
+
+ rule "zwiedzanie"
+ 	when
+ 		Answer( text == "Zwiedzac" )
+ 	then
+		questions.add(allQuestions.get(7));
+ end
+ 
+ rule "jakie-gory-polska"
+ 	when
+ 		(and Answer (text == "Polska")
+ 			Answer (text == "Parki karjobrazowe")
+ 		)
+ 	then
+ 		questions.add(allQuestions.get(11));
+ end	
+ 		
+ rule "odpoczynek-polska"
+ 	when 
+ 		(and Answer( text == "Polska") Answer( text == "Odpoczywac"))
+ 	then
+ 		questions.add(allQuestions.get(5));
+ end
+
+rule "jaki-sport"
+	when
+		Answer (text == "Uprawiac sport")
+	then
+		questions.add(allQuestions.get(9));
+end
+
+rule "jaka-plaza"
+	when
+		Answer (text == "Plywanie")
+	then
+		questions.add(allQuestions.get(10));	
+end
+
+rule "szlaki-wspinaczka"
+	when
+		Answer (text == "Wspinaczka")
+	then
+		questions.add(allQuestions.get(16));	
+end	
+
+
+rule "polska1"
+	when 
+		(and Answer (text == "Polska")
+			Answer (text == "Muzea")
+		)
+	then
+		offers.add(allOffers.get(0));
+end
+
+rule "polska2"
+	when 
+		(and Answer (text == "Polska")
+			Answer (text == "Architekture sakralna")
+		)
+	then
+		offers.add(allOffers.get(1));
+end
+
+rule "polska3"
+	when
+		(and Answer (text == "Polska")
+				Answer (text == "morze")
+		)
+	then
+		offers.add(allOffers.get(2));
+end
+
+rule "polska4"
+	when
+		(and Answer (text == "Polska")
+			Answer (text == "Wspinaczka")
+		)
+	then
+		offers.add(allOffers.get(3));
+end
+
+rule "polska5"
+	when (and Answer (text == "Polska")
+			Answer (text == "narty")
+		)
+	then
+		offers.add(allOffers.get(10));
+end
+
+rule "polska6"
+	when (and Answer (text == "Polska")
+			Answer (text == "Parki karjobrazowe")
+		)
+	then
+		offers.add(allOffers.get(14));
+end
+
+rule "za-granica1"
+	when 
+		Answer (text == "Tunezja")
+	then
+		offers.add(allOffers.get(37));
+end
+
+rule "za-granica2"
+	when 
+		Answer (text == "ponizej 2500")
+	then
+		offers.add(allOffers.get(41));
+end
+
+rule "za-granica3"
+	when
+		(and Answer (text == "Za granice")
+			Answer (text == "Plywanie")
+		)
+	then
+		offers.add(allOffers.get(22));
+end
+
+rule "za-granica4"
+	when
+		(and Answer (text == "Za granice")
+			Answer (text == "Jazda na nartach")
+		)
+	then
+		offers.add(allOffers.get(28));
+end
+

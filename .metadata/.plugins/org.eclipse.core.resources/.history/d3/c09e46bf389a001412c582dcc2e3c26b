@@ -1,0 +1,255 @@
+package com.sample;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.ButtonGroup;
+import javax.swing.JTextPane;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
+
+import org.drools.KnowledgeBase;
+import org.drools.KnowledgeBaseFactory;
+import org.drools.builder.KnowledgeBuilder;
+import org.drools.builder.KnowledgeBuilderError;
+import org.drools.builder.KnowledgeBuilderErrors;
+import org.drools.builder.KnowledgeBuilderFactory;
+import org.drools.builder.ResourceType;
+import org.drools.io.ResourceFactory;
+import org.drools.logger.KnowledgeRuntimeLogger;
+import org.drools.logger.KnowledgeRuntimeLoggerFactory;
+import org.drools.runtime.StatefulKnowledgeSession;
+import org.drools.runtime.rule.FactHandle;
+
+/**
+ * This is a sample class to launch a rule.
+ */
+public class DroolsTest {
+	public ArrayList<Question> questions = new ArrayList<Question>();
+	public ArrayList<Question> allQuestions = new  ArrayList<Question>();
+	
+	public ArrayList<Offer> offers = new  ArrayList<Offer>();
+	
+	private Question currentQuestion;
+	
+	private final JFrame window = new JFrame();
+	
+	private final JTextPane text = new JTextPane();
+	private final JButton button = new JButton();
+	
+	private final ArrayList<JRadioButton> rdButtons = new ArrayList<JRadioButton>();
+	private final ArrayList<JCheckBox> chkButtons = new ArrayList<JCheckBox>();
+	
+	private final ButtonGroup rdGroup = new ButtonGroup();
+	private final ButtonGroup chkGroup = new ButtonGroup();
+	
+	public KnowledgeBase kbase;
+	public StatefulKnowledgeSession ksession;
+	public KnowledgeRuntimeLogger logger;
+	
+	public void initFrame() {
+		window.setResizable(false);
+		window.getContentPane().setBackground(new Color(0, 191, 255));
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setSize(700,500);
+		window.setTitle("System ekspercki");
+		
+		
+		button.setBounds(227, 358, 251, 44);
+		window.getContentPane().setLayout(null);
+		window.getContentPane().add(button);
+				
+		text.setBackground(new Color(255, 250, 205));
+		text.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		text.setEditable(false);
+		
+		text.setBounds(87, 96, 516, 125);
+		window.getContentPane().add(text);
+		window.setVisible(true);
+		
+		for (int i = 0; i < 4; i++) {
+			rdButtons.add(new JRadioButton());
+			rdButtons.get(i).setBounds(90, 125+i*30, 500, 30);
+			window.getContentPane().add(rdButtons.get(i));
+			rdGroup.add(rdButtons.get(i));
+			rdButtons.get(i).setVisible(false);;
+			rdButtons.get(i).setBackground(new Color(0, 191, 255));
+			
+			chkButtons.add(new JCheckBox());
+			chkButtons.get(i).setBounds(90, 125+i*30, 500, 30);
+			window.getContentPane().add(chkButtons.get(i));
+			chkGroup.add(chkButtons.get(i));
+			chkButtons.get(i).setVisible(false);;
+			chkButtons.get(i).setBackground(new Color(0, 191, 255));
+		}
+		
+		text.setText("Witamy w systemie eksperckim !!\r\nCelem tego programu jest dialog z u\u017Cytkownikiem na temat jego wymarzonych wakacji.\r\nPo zadaniu odpowiednich pyta\u0144 system wskazuje dobran\u0105 dla u\u017Cytkownika ofert\u0119 wakacji.");
+		button.setText("Rozpocznij");
+		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (button.getText() == "Rozpocznij") {
+					button.setText("OK");
+					text.setSize(516, 27);
+					ksession.fireAllRules();
+					getQuestionAndDisplay();
+				}
+				else if (button.getText() == "Zakoncz") {
+					window.dispose();
+				}
+				else if (insertAnswer()) {
+					rdGroup.clearSelection();
+					chkGroup.clearSelection();
+					
+					ksession.fireAllRules();
+					getQuestionAndDisplay();
+				}
+				
+				
+				//startQuiz();
+			}
+		});
+	}
+	
+	public void initAllQuesitons(){
+		//dodanie wszystkich mozliwych pytan
+		allQuestions.add(new Question("Gdzie chcia³byœ pojechaæ?", new String[]{"Polska","Za granicê"}, Question.SINGLE));
+		allQuestions.add(new Question("Jakie panstwa cie interesuja?", new String[]{"Niemcy","Czechy"}, Question.MULTIPLE));
+	}
+	
+	public void initAllOffers() {
+		//dodanie wszystkich mozliwych ofert
+		
+	}
+	
+	public void initKnowledgeBase () {
+		try {
+			kbase = readKnowledgeBase();
+			ksession = kbase.newStatefulKnowledgeSession();
+			logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
+			
+    		ksession.setGlobal("questions", questions);
+    		ksession.setGlobal("allQuestions", allQuestions);
+		}
+		catch (Throwable t) {
+            t.printStackTrace();
+        }
+	}
+	
+	public void getQuestionAndDisplay() {
+		//pobranie pytania lub przejscie do wyswietlenia oferty
+		if (questions.size() > 0) {
+			currentQuestion = questions.get(0);
+			questions.remove(0);
+			displayQuestion();
+		} 
+		else {
+			displayOffer();
+			button.setText("Zakoncz");
+			System.out.println("display offer");
+			//displayOffer();
+		}
+	}
+	
+	public boolean insertAnswer() {
+		if (currentQuestion.getType() == Question.SINGLE) {
+			for (int i =0; i < 4; i++) {
+				if (rdButtons.get(i).isSelected()) {
+					ksession.insert(new Answer(rdButtons.get(i).getText()));
+					currentQuestion = null;
+						return true;
+				}
+			}
+		} else {
+			for (int i =0; i < 4; i++) {
+				if (chkButtons.get(i).isSelected()) {
+					ksession.insert(new Answer(chkButtons.get(i).getText()));
+				}
+			}
+			currentQuestion = null;
+			return true;
+		}
+			
+		return false;
+	}
+	
+	public void displayQuestion() {
+		if (currentQuestion != null) {
+			text.setText(currentQuestion.getFullText());
+			
+			//radio buttons
+			if (currentQuestion.getType() == Question.SINGLE) {
+				for (int i = 0; i < 4; i++) {
+					rdButtons.get(i).setVisible(false);
+					chkButtons.get(i).setVisible(false);
+					if (i < currentQuestion.getAnswers().size()) {
+						rdButtons.get(i).setText(currentQuestion.getAnswers().get(i));
+						rdButtons.get(i).setVisible(true);
+					}	
+				}
+				
+			}
+			
+			//check boxes
+			if (currentQuestion.getType() == Question.MULTIPLE) {
+				for (int i =0; i < 4; i++) {
+					rdButtons.get(i).setVisible(false);
+					chkButtons.get(i).setVisible(false);
+					if (i < currentQuestion.getAnswers().size()) {
+						chkButtons.get(i).setText(currentQuestion.getAnswers().get(i));
+						chkButtons.get(i).setVisible(true);
+						
+					}
+				}
+			}
+		}
+	}
+	
+
+	public void displayOffer() {
+		for (int i = 0; i < 4; i++) {
+			rdButtons.get(i).setVisible(false);
+			chkButtons.get(i).setVisible(false);
+		}
+		text.setLocation(75, 10);
+		text.setSize(516, 50);
+		
+		if (offers.size() == 0) {
+			text.setText("Przykro mi ale nie znaleziono ofertu która spelnialaby kryteria.");
+		} 
+		else {
+			for (int i = 0; i < offers.size(); i++) {
+				text.setText("Panstwo: "+offers.get(i).getCountry()+" ");
+			}
+		}
+	}
+	
+    public static final void main(String[] args) {
+    	int a = 10;
+    	DroolsTest start = new DroolsTest();
+    	start.initKnowledgeBase();
+    	start.initAllQuesitons();
+    	start.initFrame();
+    }
+
+    private static KnowledgeBase readKnowledgeBase() throws Exception {
+        KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+        kbuilder.add(ResourceFactory.newClassPathResource("Sample.drl"), ResourceType.DRL);
+        KnowledgeBuilderErrors errors = kbuilder.getErrors();
+        if (errors.size() > 0) {
+            for (KnowledgeBuilderError error: errors) {
+                System.err.println(error);
+            }
+            throw new IllegalArgumentException("Could not parse knowledge.");
+        }
+        KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();
+        kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
+        return kbase;
+    }
+}

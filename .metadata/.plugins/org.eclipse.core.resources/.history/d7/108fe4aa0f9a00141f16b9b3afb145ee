@@ -1,0 +1,5 @@
+package com.sample;
+
+public class StartSystem {
+	public void startSystem(String[] args)
+}
